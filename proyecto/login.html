@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 25px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .login-container input, button {
+            width: 100%;
+            margin: 5px 0 15px;
+            padding: 8px;
+        }
+        .password-container {
+            display: flex;
+            align-items: center;
+        }
+        .mostrar-texto {
+            margin-left: 10px;
+            cursor: pointer;
+            color: blue;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" required>
+
+            <label for="password">Contraseña:</label>
+            <div class="password-container">
+                <input type="password" id="password" required>
+                <span class="mostrar-texto" id="toggleText">MOSTRAR</span>
+            </div>
+
+            <button type="submit">Ingresar</button>
+        </form>
+        <p id="mensaje" style="color:red;"></p>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const toggleText = document.getElementById('toggleText');
+
+        toggleText.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            toggleText.textContent = isPassword ? 'OCULTAR' : 'MOSTRAR';
+        });
+
+        const form = document.getElementById('loginForm');
+        const mensaje = document.getElementById('mensaje');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const usuario = document.getElementById('usuario').value;
+            const password = document.getElementById('password').value;
+
+            // Victor es gay
+            if (usuario === "Cecytem" && password === "Metepec") {
+          
+                window.location.href = "sustentabilidad.html";
+            } else {
+                mensaje.textContent = "Usuario o contraseña incorrectos.";
+            }
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>
